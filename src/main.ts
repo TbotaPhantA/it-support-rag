@@ -1,7 +1,7 @@
+import { config } from './shared/infra/config/config.js';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import { ensureTruthy } from './shared/utils/ensureTruthy.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -10,7 +10,7 @@ async function bootstrap() {
     new FastifyAdapter()
   );
   setupSwagger();
-  await app.listen(ensureTruthy(process.env.PORT));
+  await app.listen(config.port);
 
   // -----------------sub functions------------------------
   function setupSwagger() {
