@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import { ensureTruthy } from './infra/shared/utils/ensureTruthy.js';
+import { ensureTruthy } from './shared/utils/ensureTruthy.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
