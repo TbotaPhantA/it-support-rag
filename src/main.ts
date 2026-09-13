@@ -14,11 +14,16 @@ async function bootstrap() {
 
   // -----------------sub functions------------------------
   function setupSwagger() {
-    const config = new DocumentBuilder()
-      .setTitle('IT-support AI assistant')
-      .build();
-    const documentFactory = () => SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('api', app, documentFactory);
+    SwaggerModule.setup(
+      'api',
+      app,
+      () => SwaggerModule.createDocument(
+        app,
+        new DocumentBuilder()
+          .setTitle('IT-support AI assistant')
+          .build()
+      )
+    );
   }
 }
 
